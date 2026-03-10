@@ -1,5 +1,5 @@
 
-
+/* rgb(38, 193, 232) */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,6 +8,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #151414;
+  height: 100vh;
+
+  /*background: radial-gradient(
+  circle at top right,
+  rgb(9, 113, 145) 0%,
+  #151414 60%);*/
 }̦
 
 code {
@@ -16,30 +22,137 @@ code {
 }
 
 .navbar {
-  background-color: #191818;
+  background-color: #1d1c1c;
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 26px;
   align-items: center;
-  padding-top: 2px;
+  padding-top: 6px;
+  padding-bottom: 2px;
+  margin-bottom: 0px;
 
 
   width: 60%;
   justify-self: center;
-  max-width: 200px;
+  max-width: 260px;
   border-radius: 8px;
   margin-top: 20px;
+
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  z-index: 1000;
+
+  /*This keeps the animation smooth*/
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
   
+}
+
+.navbar.hidden {
+  opacity: 0;
+
+  /* A negative translateY (-100px) pulls it UP and off the top edge of the screen */
+  transform: translateX(-50%) translateY(-100px); 
+  pointer-events: none;
+}
+
+.navbar.visible {
+  opacity: 1;
+  /* Drops it down perfectly into place */
+  transform: translateX(-50%) translateY(0); 
+  pointer-events: auto;
 }
 
 .navbar button {
   color: white;
-  background-color: #191818;
+  background-color: #1d1c1c;
   border: none;
   padding: 6px;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .navbar button :hover {
   cursor: pointer;
+  color: rgb(38, 193, 232);
+  
+
 }
+
+.navbar button[aria-label="Space"] :hover {
+  color:rgb(255, 204, 0);
+}
+
+/*------------------------------------*/
+
+.name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 5%;
+  width: 100%;
+  background-color: none;
+  margin-bottom: 60px;
+
+  
+}
+
+.first-name {
+  color: white;
+  font-size: 400px;
+  margin: 0;
+  line-height: 1;
+  margin-top: 100px;
+  margin-left: -0.05em;
+  
+  
+}
+
+/* Container holds everything */
+.home-container {
+  position: relative;
+}
+
+/* Layer 1: Pinned to the background */
+.hero-section {
+  position: sticky; /* This is the magic property! */
+  top: 0;
+  height: 100vh; /* Takes up the full screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers vertically */
+  z-index: 0; /* Keeps it strictly in the background */
+  
+  /* Keep your existing padding and alignment here */
+  padding-left: 5%;
+  align-items: flex-start;
+}
+
+/* Layer 2: The sliding sheet */
+.content-section {
+  position: relative;
+  z-index: 1; 
+  
+  /* THE FIX: A smooth gradient instead of a hard frosted glass edge */
+  background: linear-gradient(
+    to bottom, 
+    transparent 0%, /* Totally invisible at the top edge, showing the blurred name perfectly */
+    rgba(25, 24, 24, 0.95) 150px, /* Fades into an almost solid dark color */
+    rgb(25, 24, 24) 100% /* Becomes fully solid so your content is readable */
+  );
+  
+  /* Remove backdrop-filter and border-top entirely! */
+  
+  min-height: 100vh;
+  /* Notice I increased the top padding to 150px. 
+     This ensures your "About Me" text doesn't overlap with the transparent part of the gradient! */
+  padding: 150px 5% 40px;
+}
+
+.about-me {
+  color: white;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/*-------------------------------------*/
+
