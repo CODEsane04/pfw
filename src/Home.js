@@ -40,8 +40,14 @@ const Intro = () => {
             </div>
 
             <div className="content-section">
-                <div className="about-me">
-                    <p>Hi I am debjit from IIT jodhpur, I love to build applications which solve a real world problem. Take some time, roam around my profile, happy to connect with you</p>
+                <div className="about-me-grid">
+
+                    <div className="about-me-text">
+                        <p className="scroll-reveal">
+                            <span className='p1'>Hi, I'm Debjit from IIT Jodhpur, persuing B.tech in Engineering Science, Majors in Computer Science. I love building real-world applications that solve actual problems. Roam around, Look at my projects, connect with me, see you around!</span>
+                        </p>
+                    </div>
+
                 </div>
                 
                 {/* Temporary spacer to ensure the page is scrollable */}
