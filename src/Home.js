@@ -1,5 +1,10 @@
 import { useEffect, useRef } from 'react';
 
+// Fa = FontAwesome (Great for generic icons like files and mail)
+import { FaFileAlt, FaLinkedin, FaEnvelope, FaGithub } from 'react-icons/fa';
+// Si = SimpleIcons (Great for specific tech brand logos)
+import { SiLeetcode } from 'react-icons/si';
+
 const Intro = () => {
     // 1. Create a reference to target the name div directly
     const nameRef = useRef(null);
@@ -40,6 +45,7 @@ const Intro = () => {
             </div>
 
             <div className="content-section">
+
                 <div className="about-me-grid">
 
                     <div className="about-me-text">
@@ -49,9 +55,55 @@ const Intro = () => {
                     </div>
 
                 </div>
+
+                {/* NEW: The 5-Column Links Section */}
+                <div className="links-grid">
+    
+                    {/* Card 1: Resume */}
+                    <div className="link-card-container">
+                        {/* Replace href with the actual path to your PDF */}
+                        <a href="/Debjit_Resume.pdf" target="_blank" rel="noreferrer" className="link-card">
+                            <FaFileAlt className="card-icon" />
+                        </a>
+                        <button className="link-btn">DOWNLOAD RESUME</button>
+                    </div>
+
+                    {/* Card 2: LinkedIn */}
+                    <div className="link-card-container">
+                        <a href="https://www.linkedin.com/in/debjit-ghorai-23a22728a/" target="_blank" rel="noreferrer" className="link-card">
+                            <FaLinkedin className="card-icon" />
+                        </a>
+                        <button className="link-btn">CONNECT</button>
+                    </div>
+
+                    {/* Card 3: Gmail */}
+                    <div className="link-card-container">
+                        <a href="mailto:debjitghorai18@gmail.com" className="link-card">
+                            <FaEnvelope className="card-icon" />
+                        </a>
+                        <button className="link-btn">GMAIL</button>
+                    </div>
+
+                    {/* Card 4: GitHub */}
+                    <div className="link-card-container">
+                        <a href="https://github.com/CODEsane04" target="_blank" rel="noreferrer" className="link-card">
+                            <FaGithub className="card-icon" />
+                        </a>
+                        <button className="link-btn">GITHUB</button>
+                    </div>
+
+                    {/* Card 5: LeetCode */}
+                    <div className="link-card-container">
+                        <a href="https://leetcode.com/u/GODsane04/" target="_blank" rel="noreferrer" className="link-card">
+                            <SiLeetcode className="card-icon" />
+                        </a>
+                        <button className="link-btn">LEETCODE</button>
+                    </div>
+
+                </div>
                 
                 {/* Temporary spacer to ensure the page is scrollable */}
-                <div style={{ height: '150vh' }}></div>
+                <div style={{ height: '15vh' }}></div>
             </div>
 
         </div>

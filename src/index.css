@@ -167,13 +167,13 @@ code {
 /* Desktop/Tablet: restricts to 4 columns to get that tall, narrow, 2-3 word layout */
 @media (min-width: 768px) {
   .about-me-text {
-    grid-column: 1 / span 4; 
+    grid-column: 1 / span 5; 
   }
 }
 
 /* --- 2. The Scroll Reveal Effect --- */
 .scroll-reveal {
-  font-size: 3.5rem; /* Adjust this to make the text larger/smaller */
+  font-size: 4rem; /* Adjust this to make the text larger/smaller */
   font-weight: 500;
   line-height: 1.4;
   margin: 0;
@@ -195,7 +195,7 @@ code {
   animation: scroll-reveal linear forwards;
   animation-timeline: view();
   /* 'cover 50%' means the animation finishes when the text is exactly in the middle of the screen */
-  animation-range: entry 0% cover 75%; 
+  animation-range: entry 0% cover 80%; 
 }
 
 @keyframes scroll-reveal {
@@ -206,3 +206,82 @@ code {
 
 /*-------------------------------------*/
 
+/* --- The 5-Column Grid --- */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Mobile: 1 column */
+  gap: 30px;
+  margin-top: 100px; /* Gives some breathing room below your intro text */
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .links-grid {
+    grid-template-columns: repeat(3, 1fr); /* Tablet: 3 columns */
+  }
+}
+
+@media (min-width: 1024px) {
+  .links-grid {
+    grid-template-columns: repeat(5, 1fr); /* Desktop: 5 columns */
+  }
+}
+
+/* --- Card & Button Styling --- */
+.link-grid {
+  margin-top: 80px;
+}
+.link-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Space between the box and the button */
+}
+
+.link-card {
+  width: 90%;
+  aspect-ratio: 1 / 1; /* Forces the box into a perfect square */
+  border: 1px solid rgba(255, 255, 255, 0.6); /* The crisp white border */
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white; /* Very subtle glass fill */
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Placeholder text (We will swap this for icons later) */
+.logo-placeholder {
+  color: rgba(19, 19, 19, 0.5);
+  font-size: 4rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* The label buttons underneath */
+/* The updated solid button styling */
+.link-btn {
+  width: 90%; /* Forces all buttons to be the exact same width as the card above them */
+  background: transparent; 
+  color: rgb(215, 211, 211); 
+  border: none;
+  font-size: 1rem;
+  font-weight: 600; /* Made the font bolder so it reads well against the white box */
+  cursor: pointer;
+  padding: 12px 0; /* Consistent height for all buttons */
+  border-radius: 8px; /* Smooth, modern corners */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card-icon {
+  font-size: 5rem; /* 👈 INCREASE THIS NUMBER! (Was 4rem) */
+  color: #111111; 
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* The new hover effect */
+.link-btn:hover {
+  background-color: #4bc4e2; /* Turns your signature blue on hover */
+  color: white; /* Flips the text to white so it remains readable */
+}
