@@ -50,7 +50,7 @@ const Intro = () => {
 
                     <div className="about-me-text">
                         <p className="scroll-reveal">
-                            <span className='p1'>Hi, I'm Debjit from IIT Jodhpur, persuing B.tech in Engineering Science, Majors in Computer Science. I love building real-world applications that solve actual problems. Roam around, Look at my projects, connect with me, see you around!</span>
+                            <span className='p1'>Hi, I'm Debjit from IIT Jodhpur, persuing B.tech in Engineering Science, Majors in Computer Science. I love building real-world applications that solve actual problems. Roam around, Look at the projects, connect with me, see you around!</span>
                         </p>
                     </div>
 
@@ -62,7 +62,7 @@ const Intro = () => {
                     {/* Card 1: Resume */}
                     <div className="link-card-container">
                         {/* Replace href with the actual path to your PDF */}
-                        <a href="/Debjit_Resume.pdf" target="_blank" rel="noreferrer" className="link-card">
+                        <a href="/TM_Resume.pdf" target="_blank" rel="noreferrer" className="link-card">
                             <FaFileAlt className="card-icon" />
                         </a>
                         <button className="link-btn">DOWNLOAD RESUME</button>

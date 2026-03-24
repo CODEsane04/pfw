@@ -1,15 +1,25 @@
 import {FaHome, FaToolbox, FaBriefcase, FaRocket } from 'react-icons/fa'
 import {useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
 
     const [isScrolled, setIsScrolled] = useState(false);
+    const navigate = useNavigate();
+
+    const loadProjects = () => {
+        navigate("/projects")
+    }
+
+    const loadHome = () => {
+        navigate("/")
+    }
 
     useEffect(()=> {
 
         const handleScroll = ()=> {
             //if we scroll down even 10 pixels, show the navbar
-            if (window.scrollY > 15) {
+            if (window.scrollY > 5) {
                 setIsScrolled(true);
             }
             else {
@@ -32,8 +42,8 @@ const Navbar = () => {
 
         //this navbar will have homepage, projects, and experience & space
         <div className={`navbar ${isScrolled ? 'visible' : 'hidden'}`}>
-            <button aria-label="home"><FaHome/></button>
-            <button aria-label="projects"><FaToolbox/></button>
+            <button aria-label="home" onClick={loadHome}><FaHome/></button>
+            <button aria-label="projects" onClick={loadProjects}><FaToolbox/></button>
             <button aria-label="experience"><FaBriefcase/></button>
             <button aria-label="Space"><FaRocket/></button>
         </div>

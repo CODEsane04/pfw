@@ -236,6 +236,23 @@ code {
   flex-direction: column;
   align-items: center;
   gap: 15px; /* Space between the box and the button */
+
+  animation: pop-up-scroll linear forwards;
+  animation-timeline: view();
+  /* Starts when the card barely enters the bottom of the screen (5%), 
+     finishes animating by the time it is 25% up the screen */
+  animation-range: entry 5% cover 40%;
+}
+
+@keyframes pop-up-scroll {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scale(0.9); /* Starts invisible, lower down, and slightly smaller */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Snaps perfectly into its final position */
+  }
 }
 
 .link-card {
@@ -285,3 +302,168 @@ code {
   background-color: #4bc4e2; /* Turns your signature blue on hover */
   color: white; /* Flips the text to white so it remains readable */
 }
+
+/*-------------------------------------*/
+/*Project section*/
+
+/* --- Global Page Setup --- */
+.projects-container {
+  min-height: 100vh;
+  padding: 120px 5% 50px; /* Space for navbar and page edges */
+}
+
+/* --- The 12-Column Global Grid --- */
+.project-row {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Mobile: Stacks everything */
+  gap: 40px;
+  margin-bottom: 80px; /* Space between different projects */
+}
+
+@media (min-width: 768px) {
+  .project-row {
+    grid-template-columns: repeat(12, 1fr); /* Desktop: 12 Columns */
+    gap: 30px;
+    margin-bottom: 100px;
+  }
+  .project-card-wrapper {
+    grid-column: 1 / span 4; /* Left 4 columns */
+  }
+  .project-details-wrapper {
+    grid-column: 5 / span 8; /* Right 8 columns */
+  }
+}
+
+/* --- The Project Card (Left Side) --- */
+.project-card {
+  border: 1px solid rgba(255, 255, 255, 0.3); /* The outer border from your sketch */
+  border-radius: 8px; /* Optional: Slight rounding for a modern feel */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* The line under "Project 1" */
+  padding: 12px 20px;
+  font-family: monospace; /* Gives a cool, technical feel to the numbering */
+  color: #4bc4e2; /* Your signature blue */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.project-card-body {
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Spacing between title, description, and buttons */
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.project-title {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 600;
+  color: aliceblue;
+}
+
+.project-short-desc {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+/* The Side-by-Side Buttons */
+.project-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Splits the row exactly in half */
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.project-btn {
+  background-color: #ffffff;
+  color: rgb(38, 38, 38);
+  border: none;
+  padding: 8px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  border-radius: 4px;
+
+  display: block; 
+  text-align: center; 
+  text-decoration: none;
+}
+
+.project-btn:hover {
+  background: rgb(171, 169, 169);
+  color: black;
+}
+
+/* --- Detailed Description (Right Side) --- */
+.details-heading {
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle underline */
+  padding-bottom: 10px;
+}
+
+.mt-4 {
+  margin-top: 40px; /* Helper class for spacing */
+}
+
+.details-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.tech-stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-tag {
+  background: rgba(75, 196, 226, 0.1); /* Slight blue tint */
+  color: #4bc4e2;
+  border: 1px solid rgba(75, 196, 226, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Styles the list to match your existing details-text */
+.details-list {
+  text-align: left;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  padding-left: 20px; /* Gives room for the bullet points */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Adds perfect spacing between the two points */
+  margin-bottom: 25px;
+}
+
+/* Customizes the bullet point color to match your blue theme */
+.details-list li::marker {
+  color: #4bc4e2; 
+}
+
+.ftitle {
+  margin-top: 0px;
+  font-size: 100px;
+  margin-bottom: 100px;
+  color: #827e7e;
+}
+
+/*-----------------*/
+
